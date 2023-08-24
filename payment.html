@@ -44,7 +44,7 @@
                 <h2>Payment Details</h2>
                 <form id="paymentForm">
                     <label for="cardNumber">Card Number:</label>
-                    <input type="text" id="cardNumber" required minlength="16" maxlength="16"><br>
+                    <input type="text" id="cardNumber" required><br>
             
                     <label for="expiryDate">Expiry Date:</label>
                     <input type="text" id="expiryDate" required  minlength="4" maxlength="4">
@@ -193,8 +193,8 @@ paymentForm.addEventListener("submit", function(event) {
     const cvc = document.getElementById("cvc").value;
     const nameOnCard = document.getElementById("nameOnCard").value;
 
-    if (cardNumber.length < 8) {
-        alert("Incomplete field: Card Number should be at least 8 digits.");
+    if (cardNumber.length < 16 || cardNumber.length > 16) {
+        alert("Incomplete field: Card Number should be at least 16 digits.");
         return;
     }
 
